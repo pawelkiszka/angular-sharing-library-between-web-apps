@@ -30,9 +30,10 @@ Implementation shows how the problem was solved using polymorphism and Injection
 
 ### How to run examples:
 - `npm install`
-- `npm run serve-all'
+- `npm run serve-all`
+
 To access each webapp, go to:
-`localhost:4201` to access webApp1
-`localhost:4202` to access webApp2
-`localhost:4203` to access webApp3
-`localhost:4204` to access webApp4
+- `localhost:4201` to access webApp1
+- `localhost:4202` to access webApp2
+- `localhost:4203` to access webApp3
+- `localhost:4204` to access webApp4
