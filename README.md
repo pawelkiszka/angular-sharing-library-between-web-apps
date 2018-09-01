@@ -1,4 +1,4 @@
-##Angular - one library used by 4 different web apps - example of polymorphism
+## Angular - one library used by 4 different web apps - example of polymorphism
 
 Description: 
 Common-lib is a library shared between 4 different web projects (for the needs of this tutorial, named webApp1, webApp2, 
@@ -28,7 +28,7 @@ web app is using composition to overcome this problem
 
 Implementation shows how the problem was solved using polymorphism and InjectionTokens
 
-###How to run examples:
+### How to run examples:
 - `npm install`
 - `npm run serve-all'
 To access each webapp, go to:
