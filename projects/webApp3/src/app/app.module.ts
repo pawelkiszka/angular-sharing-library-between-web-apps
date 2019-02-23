@@ -1,22 +1,21 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {UserContextServiceToken} from '../../../../common-lib/user-context/user-context.service';
-import {CustomAuthenticationService} from './custom-authentication.service';
-import {AuthenticationServiceToken} from '../../../../common-lib/authentication/authentication.service';
-import {DefaultUserContextService} from '../../../../common-lib/user-context/default-user-context.service';
+import { AppComponent } from './app.component';
+import { CustomAuthenticationService } from './custom-authentication.service';
+import { AUTHENTICATION_SERVICE_TOKEN } from '../../../../shareable-lib/shareable-library.tokens';
+import { ShareableLibraryModule } from '../../../../shareable-lib/shareable-library.module';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        ShareableLibraryModule.forRoot()
     ],
     providers: [
-        {provide: UserContextServiceToken, useClass: DefaultUserContextService},
-        {provide: AuthenticationServiceToken, useClass: CustomAuthenticationService}
+        {provide: AUTHENTICATION_SERVICE_TOKEN, useClass: CustomAuthenticationService}
     ],
     bootstrap: [AppComponent]
 })

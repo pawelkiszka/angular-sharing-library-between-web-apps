@@ -1,27 +1,25 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {UserContextServiceToken} from '../../../../common-lib/user-context/user-context.service';
-import {Observable} from 'rxjs';
-import {CustomUserContext, CustomUserContextService} from './custom-user-context.service';
+import { Component, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CustomUserContext, CustomUserContextService } from './custom-user-context.service';
+import { USER_CONTEXT_SERVICE_TOKEN } from '../../../../shareable-lib/shareable-library.tokens';
 
 @Component({
     selector: 'app-root',
     template: `
-        <div *ngIf="userContext$ | async as userContext">
-            Web App 2<br/>
-            Should be using CustomUserContextService and DefaultAuthenticationService<br/><br/>
-            Name: {{userContext.name}} <br/>
-            Is Authenticated: {{userContext.isAuthenticated}} <br/>
-            Custom Property: {{userContext.customProperty}} <br/>
-        </div>
+        <pre *ngIf="userContext$ | async as userContext">
+            Web App 2
+            Should be using CustomUserContextService (with it's own, custom model) and DefaultAuthenticationService
+            
+            Name: {{userContext.name}} 
+            Is Authenticated: {{userContext.isAuthenticated}} 
+            Custom UserContext Property: {{userContext.customProperty}} 
+        </pre>
     `
 })
-export class AppComponent implements OnInit {
-    public userContext$: Observable<CustomUserContext>;
+export class AppComponent {
+    public readonly userContext$: Observable<CustomUserContext>;
 
-    constructor(@Inject(UserContextServiceToken) private readonly userContextService: CustomUserContextService) {
-    }
-
-    public ngOnInit() {
+    constructor(@Inject(USER_CONTEXT_SERVICE_TOKEN) private readonly userContextService: CustomUserContextService) {
         this.userContext$ = this.userContextService.getUserContext();
     }
 }

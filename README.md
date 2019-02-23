@@ -1,12 +1,12 @@
-## Angular - one library used by 4 different web apps - example of polymorphism
+##Angular - one library used by 4 different web apps - polymorphism example
 
 Description: 
-Common-lib is a library shared between 4 different web projects (for the needs of this tutorial, named webApp1, webApp2, 
+Shareable-lib is a library shared between 4 different web projects (for the needs of this tutorial, named webApp1, webApp2, 
 webApp3 and webApp4). 
 
 What common library does - it provides authentication service and user context service, but each of them only in one,
-default version. What's most important - user context service has dependency of authentication service (it receives 
-authentication service in constructor), so user context service can't live without authentication service.
+default version. What's the most important - user context service has dependency of authentication service (constructor
+injection), so user context service can't live without authentication service.
 Some web apps want to use the default versions of services, but others would like to use eg. use only default version of 
 user context service, and implementation of default authentication service .
 
