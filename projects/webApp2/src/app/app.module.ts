@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CustomUserContextService } from './custom-user-context.service';
-import { USER_CONTEXT_SERVICE_TOKEN } from '../../../../shareable-lib/shareable-library.tokens';
 import { ShareableLibraryModule } from '../../../../shareable-lib/shareable-library.module';
+import { UserContextService } from 'shareable-lib/user-context/user-context.service';
 
 @NgModule({
     declarations: [
@@ -15,7 +15,7 @@ import { ShareableLibraryModule } from '../../../../shareable-lib/shareable-libr
         ShareableLibraryModule.forRoot()
     ],
     providers: [
-        {provide: USER_CONTEXT_SERVICE_TOKEN, useClass: CustomUserContextService},
+        {provide: UserContextService, useClass: CustomUserContextService},
     ],
     bootstrap: [AppComponent]
 })

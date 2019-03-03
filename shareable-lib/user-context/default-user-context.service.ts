@@ -3,12 +3,11 @@ import { UserContext, UserContextService } from './user-context.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AUTHENTICATION_SERVICE_TOKEN } from '../shareable-library.tokens';
 
 @Injectable()
 export class DefaultUserContextService implements UserContextService {
 
-    constructor(@Inject(AUTHENTICATION_SERVICE_TOKEN) private readonly authenticationService: AuthenticationService) {
+    constructor(private readonly authenticationService: AuthenticationService) {
     }
 
     public getUserContext(): Observable<UserContext> {

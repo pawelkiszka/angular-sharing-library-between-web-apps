@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
 
-export interface AuthenticationService {
-    isAuthenticated(): Observable<string>;
+export abstract class AuthenticationService {
+    abstract isAuthenticated(): Observable<string>;
 }

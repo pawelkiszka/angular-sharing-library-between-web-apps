@@ -1,8 +1,8 @@
 import {Observable} from 'rxjs';
 import {InjectionToken} from '@angular/core';
 
-export interface UserContextService {
-    getUserContext(): Observable<UserContext>;
+export abstract class UserContextService {
+    abstract getUserContext(): Observable<UserContext>;
 }
 
 export interface UserContext {

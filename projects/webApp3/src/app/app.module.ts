@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CustomAuthenticationService } from './custom-authentication.service';
-import { AUTHENTICATION_SERVICE_TOKEN } from '../../../../shareable-lib/shareable-library.tokens';
 import { ShareableLibraryModule } from '../../../../shareable-lib/shareable-library.module';
+import { AuthenticationService } from 'shareable-lib/authentication/authentication.service';
 
 @NgModule({
     declarations: [
@@ -15,7 +15,7 @@ import { ShareableLibraryModule } from '../../../../shareable-lib/shareable-libr
         ShareableLibraryModule.forRoot()
     ],
     providers: [
-        {provide: AUTHENTICATION_SERVICE_TOKEN, useClass: CustomAuthenticationService}
+        {provide: AuthenticationService, useClass: CustomAuthenticationService}
     ],
     bootstrap: [AppComponent]
 })

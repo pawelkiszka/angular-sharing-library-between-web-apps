@@ -1,7 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { DefaultUserContextService } from './user-context/default-user-context.service';
-import { AUTHENTICATION_SERVICE_TOKEN, USER_CONTEXT_SERVICE_TOKEN } from './shareable-library.tokens';
 import { DefaultAuthenticationService } from './authentication/default-authentication.service';
+import { UserContextService } from './user-context/user-context.service';
+import { AuthenticationService } from './authentication/authentication.service';
 
 @NgModule({})
 export class ShareableLibraryModule {
@@ -9,8 +10,8 @@ export class ShareableLibraryModule {
         return {
             ngModule: ShareableLibraryModule,
             providers: [
-                {provide: USER_CONTEXT_SERVICE_TOKEN, useClass: DefaultUserContextService},
-                {provide: AUTHENTICATION_SERVICE_TOKEN, useClass: DefaultAuthenticationService},
+                {provide: UserContextService, useClass: DefaultUserContextService},
+                {provide: AuthenticationService, useClass: DefaultAuthenticationService},
             ]
         };
     }

@@ -2,26 +2,20 @@ import { UserContext, UserContextService } from '../../../../shareable-lib/user-
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../../../../shareable-lib/authentication/authentication.service';
-import { Inject, Injectable } from '@angular/core';
-import { AUTHENTICATION_SERVICE_TOKEN } from '../../../../shareable-lib/shareable-library.tokens';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CustomUserContextService implements UserContextService {
 
-    constructor(@Inject(AUTHENTICATION_SERVICE_TOKEN) private readonly authenticationService: AuthenticationService) {
+    constructor(private readonly authenticationService: AuthenticationService) {
     }
 
-    public getUserContext(): Observable<CustomUserContext> {
+    public getUserContext(): Observable<UserContext> {
         return this.authenticationService.isAuthenticated().pipe(
-            map((isAuthenticated: string) => <CustomUserContext> {
+            map((isAuthenticated: string) => <UserContext>{
                 name: 'Bill => from CustomUserContextService',
-                isAuthenticated: isAuthenticated,
-                customProperty: 'this is custom property, specific only forCustomUserContext'
+                isAuthenticated: isAuthenticated
             })
         );
     }
-}
-
-export interface CustomUserContext extends UserContext {
-    customProperty: string
 }
